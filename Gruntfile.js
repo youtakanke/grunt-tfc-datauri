@@ -1,39 +1,6 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    exec: {
-      remove_logs: {
-        command: 'rm -f *.log'
-      , stdout: false
-      , stderr: false
-      }
-    , list_files: {
-        cmd: 'ls -l **'
-      }
-    , echo_grunt_version: {
-        cmd: function() { return 'echo ' + this.version; }
-      }
-    , print_name: {
-        cmd: function(firstName, lastName) {
-          var formattedName = [
-                lastName.toUpperCase()
-              , firstName.toUpperCase()
-              ].join(', ');
-
-          return 'echo ' + formattedName;
-        }
-      }
-    , test_callback: {
-        cmd : 'ls -h',
-        callback : function(error, stdout, stderr){
-          var cp = require('child_process');
-          var util = require('util');
-          console.log(util.inspect(cp));
-          console.log('callback is ok, you can use error,stdout,stderr as arguments');
-        }
-      }
-    }
-
-  , jshint: {
+ jshint: {
       options: {
       // enforcing options
         curly: true

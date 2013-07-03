@@ -1,37 +1,17 @@
 module.exports = function(grunt) {
-  grunt.initConfig({
- jshint: {
-      options: {
-      // enforcing options
-        curly: true
-      , forin: true
-      , newcap: true
-      , noarg: true
-      , noempty: true
-      , nonew: true
-      , quotmark: true
-      , undef: true
-      , unused: true
-      , trailing: true
-      , maxlen: 80
-
-      // relaxing options
-      , boss: true
-      , es5: true
-      , expr: true
-      , laxcomma: true
-
-      // environments
-      , node: true
-      }
-    , tasks: ['tasks/*.js']
-    , tests: ['test/*.js']
-    , gruntfile: ['Gruntfile.js']
-    }
-  });
-
-  grunt.loadTasks('tasks');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-
-  grunt.registerTask('lint', 'jshint');
+	grunt.initConfig({
+		tfcDatauri : {
+			testfile : {
+				file : './test/tfc_publish_file.html',
+				dest : './test/manifest.js',
+				options : {
+					log : true,
+					//処理中のlogをconsoleに表示します
+					varName : 'foo' // var foo =[ ~
+					//変数名が'manifest'以外の場合はvarNameで指定します。
+				}
+			}
+		}
+	})
+	grunt.loadTasks('tasks');
 };

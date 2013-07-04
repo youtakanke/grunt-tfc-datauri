@@ -28,7 +28,7 @@ module.exports = function(grunt){
 			_startManifest = _startManifest.input.match(/['"]?src+['"]? ?:/);
 			var _finishManifest = _startManifest.input.match(/]/);
 			//manifestデータ抽出
-			var _manifest = _startManifest.input.substring(_startManifest.index, _finishManifest.index + 1);
+			var _manifest = _startManifest.input.substring(_startManifest.index-1, _finishManifest.index + 1);
 			
 			//base64化されたデータ格納用
 			var _resultManifest = _data.dest ? 'var ' + _varName + ' = [\n' : '';
@@ -87,7 +87,7 @@ gruntTfcDatauri = {
 		if(grunt.file.isFile(path)){
 			return new Buffer(fs.readFileSync(path)).toString('base64');
 		}else{
-			grunt.log.error('Such files could not be found ' + path);
+			grunt.fail.fatal('Such files could not be found ' + path);
 			return 'noFile';
 		}
 	},

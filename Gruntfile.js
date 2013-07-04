@@ -1,14 +1,19 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		tfcDatauri : {
-			testfile : {
+			test_1 : {
 				file : './test/tfc_publish_file.html',
-				dest : './test/manifest.js',
+				dest : './test/manifest/manifest.js',
 				options : {
-					log : true,
+					log : true
 					//処理中のlogをconsoleに表示します
-					varName : 'foo' // var foo =[ ~
-					//変数名が'manifest'以外の場合はvarNameで指定します。
+				}
+			},
+			test_2 : {
+				file : './test/tfc_publish_file.html',
+				options : {
+					log : true
+					//処理中のlogをconsoleに表示します
 				}
 			}
 		}
